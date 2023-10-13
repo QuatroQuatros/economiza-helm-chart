@@ -1,15 +1,49 @@
-# Helm Chart Installation and Configuration Guide
+# Helm Chart instalação e configuração
+Neste guia, vou mostrar como instalar e configurar o meu Helm Chart. Antes de prosseguir, certifique-se de ter instalado e configurado corretamente o
+[Helm](https://helm.sh/docs/intro/install/) e o [Kubernetes](https://kubernetes.io/docs/setup/)
 
-This guide will walk you through the installation and configuration of the Helm chart for deploying the "meu-nginx" application. The Helm chart contains default values, and we will demonstrate how to customize these values during installation. Please ensure that you have [Helm](https://helm.sh/docs/intro/install/) and [Kubernetes](https://kubernetes.io/docs/setup/) configured in your environment before proceeding.
+## Prérequisitos
 
-## Prerequisites
+Certifique-se de que os seguintes pré-requisitos estejam atendidos:
 
-- [Helm](https://helm.sh/docs/intro/install/)
-- [Kubernetes](https://kubernetes.io/docs/setup/)
+Helm: Helm deve estar instalado e configurado em seu ambiente.
+Kubernetes: Seu cluster Kubernetes deve estar configurado e em execução.
 
-## Step 1: Add Helm Repository
+## Passo 1: Clone o repositório do chart
 
-If you haven't already, add the Helm repository containing the "meu-nginx" chart to your Helm client:
+Se você ainda não possui o Helm Chart em seu computador, faça um clone do repositório com o seguinte comando:
 
 ```bash
-helm repo add meu-nginx https://charts.example.com/meu-nginx
+git clone git@github.com:QuatroQuatros/economiza-helm-chart.git
+```
+
+
+## Passo 2: Configure os valores
+
+Navegue até o diretório do Helm Chart:
+
+```bash
+cd economiza
+```
+
+Agora, edite o arquivo values.yaml com suas preferências e configurações específicas para o aplicativo.
+
+
+
+## Passo 3: Instale o chart
+
+Após ter configurado os valores do Chart de acordo com suas necessidades, você pode prosseguir com a instalação. Use o seguinte comando:
+
+```bash
+helm install meu-app ./economiza -n meu-namespace --create-namespace
+```
+
+A flag --create-namespace criará um novo namespace, caso você ainda não tenha criado um.
+
+## Passo 4: Acesse a aplicação
+
+Se a instalação for concluída com êxito, você receberá um link para acessar o aplicativo. O endereço deste link será o mesmo configurado na chave host no arquivo values.yaml.
+
+
+
+
